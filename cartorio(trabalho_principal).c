@@ -83,7 +83,7 @@ int registro() //função de adicionar funcionário
      registro ();
      break;
      case 2:
-     main ();
+     menu (); // abrir a função menu
 	 break;	
    }
 
@@ -134,7 +134,7 @@ int consulta() // função de consultar funcionário
  }	
  case 2: // caso 2
   {
-  main (); // abrir função main
+  menu (); // abrir função menu
   break;
   }
  default:
@@ -187,7 +187,7 @@ int deletar() // função de deletar funcionário
    }
    case 2: // caso 2 
    {
-   main (); // abrir função main
+   menu (); // abrir função menu
    break;
    }
    default:
@@ -202,8 +202,39 @@ int deletar() // função de deletar funcionário
 int main() // função primára
 
  {
-    int opcao = 0; //variável 
-	int repeticao = 1; //variavel de repetição (for)
+   setlocale(LC_ALL, "portuguese"); //setar idioma para o portugues
+    
+    char senha [10] = "a"; // variável senha string[] de 10 caracteres com um valor atribuido
+    int comparacao;
+    
+     printf ("cártorio De Alunos e Funcionários da EBAC \n\n\n");
+     printf ("\t**LOGIN**");
+     printf ("\n\n\nDigite A Senha Para Acesso\n");
+     printf ("Senha:");
+     scanf ("%s", senha);
+     
+    system ("cls");
+
+
+
+    comparacao = strcmp(senha,"admin"); // salva admin na variável comparacao
+    if (comparacao ==0) // a variavel comparacao deve ser igual a zero ou seja não mudar
+    { // se a afimaçao acima for verdade acontece a função main
+	menu ();
+    }
+	else // não vai ter {} porque é só uma condição
+       printf ("Senha Incorreta!"); 
+	 
+	 
+   } // fim da função main
+
+
+int menu ()
+ {
+int opcao = 0; //variável 
+int repeticao = 1; //variavel de repetição (for)
+	 
+	 system ("cls");
 	for (repeticao =1;repeticao =1;)
 	{ // ponto de partida do "for"
 	
@@ -245,5 +276,6 @@ switch (opcao)
 }	
 	 
     }  // ponto na qual o sistema ira volta ao ponto de partida
-
- }
+   
+ 
+ } // fim da função menu
